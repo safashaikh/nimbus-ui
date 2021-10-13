@@ -11,12 +11,12 @@ export class ProductComponent implements OnInit {
   currentProduct: Product;
   allProducts: Product[];
   testInp: string;
-  showProducts = false;
+  showProducts = true;
 
   constructor(productService: ProductsService) {
     this.currentProduct = productService.getPlayer();
     this.allProducts = productService.getAllProducts();
-    this.testInp = "testing";
+    this.testInp = "";
   }
 
   ngOnInit(): void {

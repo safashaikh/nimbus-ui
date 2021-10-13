@@ -14,6 +14,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { UserloginComponent } from './components/userlogin/userlogin.component';
 import { ProductComponent } from './components/product/product.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { UserComponent } from './components/user/user.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     AppComponent,
     UserloginComponent,
     ProductComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +36,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     MatIconModule,
     MatSelectModule,
     MatTabsModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

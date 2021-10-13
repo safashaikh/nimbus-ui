@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <div class="card" style="width: 50rem;">
-        <div class="card-header">
+      <div class="mat-card" style="width: 50rem;">
+        <div class="mat-card-header">
           <div class="row">
             <div class="col">
               <h3>Product Information</h3>
@@ -15,7 +15,7 @@
           </div>
         </div>
         <div id="collapse-L1" *ngIf="showProducts">
-          <div class="card-body">Some information about
+          <div class="mat-card-body">Some information about
             <a href="http://www.seanlahman.com/baseball-archive/statistics/">Lahman's 2020
               Electronics Databases</a> People will go here!
           </div>
@@ -70,3 +70,45 @@
     </div>
   </div>
 </div>
+
+<ngb-accordion #acc="ngbAccordion">
+  <ngb-panel id="toggle-1" title="Products">
+    <ng-template ngbPanelContent>
+      <div class="products">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Manufacturer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of allProducts; index as i">
+              <td>
+                {{ p.productID }}
+              </td>
+              <td>{{p.name }}</td>
+              <td>{{ p.manufacturer }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel id="toggle-2" title="Second">
+    <ng-template ngbPanelContent>
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+      craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+      occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+      labore sustainable VHS.
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
+<hr/>
+<button class="btn btn-sm btn-outline-primary mr-2" (click)="acc.toggle('toggle-1')">Toggle first</button>
+<button class="btn btn-sm btn-outline-primary mr-2" (click)="acc.toggle('toggle-2')">Toggle second</button>
+
+
