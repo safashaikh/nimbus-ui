@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card" style="width: 50rem;">
+        <div class="card-header">
+          <div class="row">
+            <div class="col">
+              <h3>Product Information</h3>
+            </div>
+            <div class="col">
+              <button class="btn btn-link collapsed float-end" data-toggle="collapse" data-target="#collapse-L1"
+                      aria-expanded="true" aria-controls="collapse1" (click)="toggleProducts()">
+                <i class="fa fa-plus-square" style="font-size:18px;color:black"></i></button>
+            </div>
+          </div>
+        </div>
+        <div id="collapse-L1" *ngIf="showProducts">
+          <div class="card-body">Some information about
+            <a href="http://www.seanlahman.com/baseball-archive/statistics/">Lahman's 2020
+              Electronics Databases</a> People will go here!
+          </div>
+          <p>
+            For example, the product's manufacturer could be: {{ currentProduct.manufacturer }}
+          </p>
+          <p>A list of products names might be:</p>
+          <ol>
+            <li *ngFor="let p of allProducts">{{p.name }}</li>
+          </ol>
+          <p>And shown in a table.</p>
+
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">Product ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Manufacturer</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let p of allProducts; index as i">
+              <td>
+                {{ p.productID }}
+              </td>
+              <td>{{p.name }}</td>
+              <td>{{ p.manufacturer }}</td>
+            </tr>
+            </tbody>
+          </table>
+
+          <p>
+            At this point, it would be really cool to allow someone to enter a name or something else and:
+          </p>
+          <ol>
+            <li>Somehow calling an application or database.</li>
+            <li>Showing only the players that match the search criteria.</li>
+            <li>That might make an excellent homework or project assignment.</li>
+          </ol>
+        </div>
+
+        <div class="card" *ngIf="showProducts">
+          <div class="card-body">
+            <form>
+              <label>Type something ...</label><input type="text" class="form-control"
+                                                      (input)="onSomethingInput($event)">
+            </form>
+            You typed: <span *ngIf="testInp"> "{{ testInp }}" </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
