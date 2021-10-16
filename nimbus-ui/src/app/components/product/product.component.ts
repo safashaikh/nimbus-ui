@@ -14,7 +14,7 @@ export class ProductComponent implements OnInit {
   showProducts = true;
 
   constructor(productService: ProductsService) {
-    this.currentProduct = productService.getPlayer();
+    this.currentProduct = productService.getProduct();
     this.allProducts = productService.getAllProducts();
     this.testInp = "";
   }

@@ -24,7 +24,7 @@
           </p>
           <p>A list of products names might be:</p>
           <ol>
-            <li *ngFor="let p of allProducts">{{p.name }}</li>
+            <li *ngFor="let p of allProducts">{{p.pname }}</li>
           </ol>
           <p>And shown in a table.</p>
 
@@ -39,9 +39,9 @@
             <tbody>
             <tr *ngFor="let p of allProducts; index as i">
               <td>
-                {{ p.productID }}
+                {{ p.pid }}
               </td>
-              <td>{{p.name }}</td>
+              <td>{{p.pname }}</td>
               <td>{{ p.manufacturer }}</td>
             </tr>
             </tbody>
@@ -86,9 +86,9 @@
           <tbody>
             <tr *ngFor="let p of allProducts; index as i">
               <td>
-                {{ p.productID }}
+                {{ p.pid }}
               </td>
-              <td>{{p.name }}</td>
+              <td>{{p.pname }}</td>
               <td>{{ p.manufacturer }}</td>
             </tr>
           </tbody>

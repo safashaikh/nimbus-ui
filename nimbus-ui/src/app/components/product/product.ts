@@ -1,11 +1,11 @@
 export class Product {
-    productID: string;
-    name: string;
+    pid: string;
+    pname: string;
     manufacturer: string;
   
-    constructor(productID: string, name: string, manufacturer: string) {
-      this.productID = productID;
-      this.name = name;
+    constructor(pid: string, pname: string, manufacturer: string) {
+      this.pid = pid;
+      this.pname = pname;
       this.manufacturer = manufacturer;
     }
   

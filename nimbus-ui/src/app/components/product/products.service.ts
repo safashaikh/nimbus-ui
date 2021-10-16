@@ -21,7 +21,7 @@ export class ProductsService {
     return this.allProducts;
   }
 
-  getPlayer(): Product {
+  getProduct(): Product {
     return this.theProduct;
   }
 }
