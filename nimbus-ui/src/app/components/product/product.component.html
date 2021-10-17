@@ -1,114 +1,38 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="mat-card" style="width: 50rem;">
-        <div class="mat-card-header">
-          <div class="row">
-            <div class="col">
-              <h3>Product Information</h3>
+<div class="px-0 bg-light">
+    <div class="d-md-flex">
+        <div id="topnavbar">
+            <div class="topnav mb-3">
+                <div class="d-flex px-1"> <a href="users">users</a> <a href="products" class="active">products</a> </div>
             </div>
-            <div class="col">
-              <button class="btn btn-link collapsed float-end" data-toggle="collapse" data-target="#collapse-L1"
-                      aria-expanded="true" aria-controls="collapse1" (click)="toggleProducts()">
-                <i class="fa fa-plus-square" style="font-size:18px;color:black"></i></button>
+            <div class="d-flex align-items-center mb-3 px-md-3 px-2"> <span class="text-uppercase fs13 fw-bolder pe-3">search<span class="ps-1">by</span></span>
+                <form class="example d-flex align-items-center"> <input type="text" placeholder="Type in Company Name Or Mid id" name="search"> <button type="submit"><i class="fa fa-search"></i></button> </form>
             </div>
-          </div>
+            <div class="table-responsive px-2">
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col">ProductID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Manufacturer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let p of allProducts" >
+                            <td><span class="bg-blight">{{p.pid}}</span></td>
+                            <td><span class="bg-bdark">{{p.pname}}</span></td>
+                            <td><span class="bg-blight">{{p.manufacturer}}</span></td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+            <div class="d-flex align-items-center justify-content-between px-3 mt-3">
+                <div class="bg-bdark fs13"> <span>Page</span> <input class="input-10 text-center" type="text" value="1"> <span><span class="px-1">of</span>1</span> </div>
+                <div class="d-flex justify-content-end bg-bdark fs13"> <span class="pe-1">Show</span> <input class="input-10" type="number" value="25"> <span class="ps-2"><span class="pe-2">/</span>Page</span> </div>
+            </div>
         </div>
-        <div id="collapse-L1" *ngIf="showProducts">
-          <div class="mat-card-body">Some information about
-            <a href="http://www.seanlahman.com/baseball-archive/statistics/">Lahman's 2020
-              Electronics Databases</a> People will go here!
-          </div>
-          <p>
-            For example, the product's manufacturer could be: {{ currentProduct.manufacturer }}
-          </p>
-          <p>A list of products names might be:</p>
-          <ol>
-            <li *ngFor="let p of allProducts">{{p.pname }}</li>
-          </ol>
-          <p>And shown in a table.</p>
-
-          <table class="table table-striped">
-            <thead>
-            <tr>
-              <th scope="col">Product ID</th>
-              <th scope="col">Name</th>
-              <th scope="col">Manufacturer</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let p of allProducts; index as i">
-              <td>
-                {{ p.pid }}
-              </td>
-              <td>{{p.pname }}</td>
-              <td>{{ p.manufacturer }}</td>
-            </tr>
-            </tbody>
-          </table>
-
-          <p>
-            At this point, it would be really cool to allow someone to enter a name or something else and:
-          </p>
-          <ol>
-            <li>Somehow calling an application or database.</li>
-            <li>Showing only the players that match the search criteria.</li>
-            <li>That might make an excellent homework or project assignment.</li>
-          </ol>
-        </div>
-
-        <div class="card" *ngIf="showProducts">
-          <div class="card-body">
-            <form>
-              <label>Type something ...</label><input type="text" class="form-control"
-                                                      (input)="onSomethingInput($event)">
-            </form>
-            You typed: <span *ngIf="testInp"> "{{ testInp }}" </span>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 </div>
 
-<ngb-accordion #acc="ngbAccordion">
-  <ngb-panel id="toggle-1" title="Products">
-    <ng-template ngbPanelContent>
-      <div class="products">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Manufacturer</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let p of allProducts; index as i">
-              <td>
-                {{ p.pid }}
-              </td>
-              <td>{{p.pname }}</td>
-              <td>{{ p.manufacturer }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </ng-template>
-  </ngb-panel>
-  <ngb-panel id="toggle-2" title="Second">
-    <ng-template ngbPanelContent>
-      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-      craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-      occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-      labore sustainable VHS.
-    </ng-template>
-  </ngb-panel>
-</ngb-accordion>
-<hr/>
-<button class="btn btn-sm btn-outline-primary mr-2" (click)="acc.toggle('toggle-1')">Toggle first</button>
-<button class="btn btn-sm btn-outline-primary mr-2" (click)="acc.toggle('toggle-2')">Toggle second</button>
 
 

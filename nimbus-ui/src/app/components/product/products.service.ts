@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from './product';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +10,7 @@ export class ProductsService {
   theProduct: Product;
   allProducts: Product[] = new Array(3);
 
-  constructor() { 
+  constructor(private http: HttpClient) { 
     this.theProduct = new Product("1", "Cazcase Deer Pattern Smart Case Cover Flip Stand Cover for Apple iPad pro 10.5 inch (A1701 / A1709) / ipad Air 3 10.5 inch 2019 (Brown)", "CAZCASE");
 
     this.allProducts[0] = new Product("1", "Cazcase Deer Pattern Smart Case Cover Flip Stand Cover for Apple iPad pro 10.5 inch (A1701 / A1709) / ipad Air 3 10.5 inch 2019 (Brown)", "CAZCASE");
@@ -17,11 +19,35 @@ export class ProductsService {
 
   }
 
+  getProductServiceUrl(id: string): string {
+    const theUrl = window.location.href;
+    let result: string;
+
+    if ((theUrl.includes('127.0.0.1')) || (theUrl.includes('localhost')))
+    {
+      result = 'http://127.0.0.1:5000/products/'+id;
+    } else {
+      result = 'ec2-54-242-71-165.compute-1.amazonaws.com:5000/products/'+id;
+    }
+    return result;
+  }
+
+  getProduct(productID: string): Observable<Product> {
+    let theUrl: string;
+
+    theUrl = this.getProductServiceUrl(productID);
+    return this.http.get<Product>(theUrl);
+  }
+
+  getProducts() : Observable<Product[]> {
+    let theUrl: string;
+
+    theUrl = this.getProductServiceUrl('');
+    return this.http.get<Product[]>(theUrl);
+  }
+
   getAllProducts(): Product[] {
     return this.allProducts;
   }
 
-  getProduct(): Product {
-    return this.theProduct;
-  }
 }

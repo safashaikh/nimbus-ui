@@ -1,16 +1,5 @@
 <div class="px-0 bg-light">
-    <div class="d-flex">
-        <div class="d-flex align-items-center " id="navbar"> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-items" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation"> <span class="fas fa-bars"></span> </button> <a class="text-decoration-none fs14 ps-2" href="#">Nimbus</a></div>
-        <div id="navbar2" class="d-flex justify-content-end pe-4"> <span class="far fa-user-circle "></span> </div>
-    </div>
     <div class="d-md-flex">
-        <ul id="navbar-items" class="p-0">
-            <li> <span class="fas fa-th-list"></span> <span class="ps-3 name">Dashboard</span> </li>
-            <li> <span class="fas fa-chart-line"></span> <span class="ps-3 name">TRANSACTIONS</span> </li>
-            
-            <li> <span class="fas fa-store-alt"></span> <span class="ps-3 name">merchants</span> </li>
-            <li> <span class="fas fa-store-alt"></span> <span class="ps-3 name"><a href='userlogin'>Login</a></span> </li>
-        </ul>
         <div id="topnavbar">
             <div class="topnav mb-3">
                 <div class="d-flex px-1"> <a href="users" class="active">users</a> <a href="products">products</a> </div>
@@ -33,9 +22,9 @@
                     <tbody>
                         <tr *ngFor="let u of usersInfo" >
                             <td><span class="bg-blight">{{u.ID}}</span></td>
-                            <td><span class="bg-bdark">{{u.nameLast}}<span class="ps-1">LOANS</span></span></td>
+                            <td><span class="bg-bdark">{{u.nameLast}}</span></td>
                             <td><span class="bg-blight">{{u.nameFirst}}</span></td>
-                            <td><span class="bg-bdark">{{u.username}}<span>Trading</span></span></td>
+                            <td><span class="bg-bdark">{{u.username}}</span></td>
                             <td><span class="bg-bdark">{{u.email}}</span></td>
                             <td class="text-center px-0"><span class="fas fa-check">{{u.addressID}}</span></td>
                         </tr>
