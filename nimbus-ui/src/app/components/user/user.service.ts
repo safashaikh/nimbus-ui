@@ -2,6 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Address, User } from './user';
 import { Observable } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -22,16 +25,22 @@ export class UserService {
     {
       result = 'http://127.0.0.1:5000/users/'+id;
     } else {
-      result = 'ec2-54-242-71-165.compute-1.amazonaws.com:5000/users/'+id;
+      result = 'http://useraddressflask-env.eba-2thfz2gi.us-east-1.elasticbeanstalk.com/users/'+id;
+    }
+    if (id!=''){
+      result = 'http://useraddressflask-env.eba-2thfz2gi.us-east-1.elasticbeanstalk.com/users/'+id;
+    }else{
+      result = 'http://useraddressflask-env.eba-2thfz2gi.us-east-1.elasticbeanstalk.com/users';
     }
     return result;
   }
+  
 
-  getUser(userID: string): Observable<User> {
+  getUser(userID: string): Observable<User[]> {
     let theUrl: string;
 
     theUrl = this.getUserServiceUrl(userID);
-    return this.http.get<User>(theUrl);
+    return this.http.get<User[]>(theUrl);
   }
 
   getUserAddress(userID: string): Observable<Address> {

@@ -25,8 +25,7 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     this.userID = this.route.snapshot.params['userID'];
     this.userService.getUser(this.userID)
-    .subscribe( data => this.currUser = {...data });
-
+    .subscribe( data => this.currUser = data[0]);
   }
 
   // Include for all users page
