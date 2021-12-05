@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Address, User } from './user';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { JsonObjectExpression } from 'typescript';
 
 
 
@@ -25,22 +26,22 @@ export class UserService {
     {
       result = 'http://127.0.0.1:5000/users/'+id;
     } else {
-      result = 'http://useraddressflask-env.eba-2thfz2gi.us-east-1.elasticbeanstalk.com/users/'+id;
+      result = 'http://eb2-env.eba-khxuypq3.us-east-1.elasticbeanstalk.com/users/'+id;
     }
     if (id!=''){
-      result = 'http://useraddressflask-env.eba-2thfz2gi.us-east-1.elasticbeanstalk.com/users/'+id;
+      result = 'http://127.0.0.1:5000/users/'+id;
     }else{
-      result = 'http://useraddressflask-env.eba-2thfz2gi.us-east-1.elasticbeanstalk.com/users';
+      result = 'http://127.0.0.1:5000/users';
     }
     return result;
   }
   
 
-  getUser(userID: string): Observable<User[]> {
+  getUser(userID: string): Observable<any> {
     let theUrl: string;
 
     theUrl = this.getUserServiceUrl(userID);
-    return this.http.get<User[]>(theUrl);
+    return this.http.get<any>(theUrl);
   }
 
   getUserAddress(userID: string): Observable<Address> {
@@ -50,10 +51,10 @@ export class UserService {
     return this.http.get<Address>(theUrl);
   }
 
-  getUsers() : Observable<User[]> {
+  getUsers() : Observable<any> {
     let theUrl: string;
 
-    theUrl = this.getUserServiceUrl('');
-    return this.http.get<User[]>(theUrl);
+    theUrl = 'http://127.0.0.1:5000/users'; //this.getUserServiceUrl('');
+    return this.http.get<any>(theUrl);
   }
 }

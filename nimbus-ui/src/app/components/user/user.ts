@@ -1,3 +1,5 @@
+import { Link } from "src/app/link";
+
 export class User {
   ID: Number;
   nameLast: string;
