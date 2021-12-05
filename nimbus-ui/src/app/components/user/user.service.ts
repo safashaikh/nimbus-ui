@@ -44,11 +44,11 @@ export class UserService {
     return this.http.get<any>(theUrl);
   }
 
-  getUserAddress(userID: string): Observable<Address> {
+  getUserAddress(userID: string): Observable<any> {
     let theUrl: string;
 
     theUrl = this.getUserServiceUrl(userID) + '/address';
-    return this.http.get<Address>(theUrl);
+    return this.http.get<any>(theUrl);
   }
 
   getUsers() : Observable<any> {

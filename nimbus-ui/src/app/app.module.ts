@@ -17,6 +17,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { UserComponent } from './components/user/user.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsersComponent } from './components/users/users.component';
+import { TestcomponentComponent } from './components/testcomponent/testcomponent.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { UsersComponent } from './components/users/users.component';
     ProductComponent,
     SearchBarComponent,
     UserComponent,
-    UsersComponent
+    UsersComponent,
+    TestcomponentComponent
   ],
   imports: [
     BrowserModule,

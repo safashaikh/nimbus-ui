@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./userlogin.component.scss']
 })
 export class UserloginComponent implements OnInit {
+  loginURL: string = "http://useraddressflask-env.eba-2thfz2gi.us-east-1.elasticbeanstalk.com/userlogin/google";
 
   constructor() { }
 

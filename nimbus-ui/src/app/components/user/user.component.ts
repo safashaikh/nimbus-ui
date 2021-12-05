@@ -19,7 +19,7 @@ export class UserComponent implements OnInit {
     this.userService = userService;
     this.currUser = new User(0,"ex","ex","ex", "ex",0);
     this.userID = '0';
-    this.userAddr = new Address(0,'','','','','','');
+    this.userAddr = new Address(0,'','','','','','','');
    }
 
   ngOnInit(): void {
@@ -31,6 +31,13 @@ export class UserComponent implements OnInit {
       this.currUser = new User(user.ID, user.nameLast, user.nameFirst, user.username, user.email, user.addressID);
       console.log(this.currUser)
     });
+
+    this.userService.getUserAddress(this.userID)
+    .subscribe ( data => {
+      let addr = data['data'][0];
+      console.log(addr);
+      this.userAddr = new Address(addr.ID, addr.streetNo, addr.streetName1, addr.streetName2, addr.city, addr.state, addr.zipcode, addr.countryCode);
+    })
   }
 
   // Include for all users page

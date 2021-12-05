@@ -23,23 +23,27 @@ export class Address {
   streetNo: string;
   streetName1: string; 
   streetName2: string;
-  region: string; 
+  city: string;
+  state: string; 
+  zipcode: string;
   countryCode: string;
-  postalCode: string;
 
   constructor(ID: Number,
     streetNo: string,
     streetName1: string, 
     streetName2: string,
-    region: string, 
-    countryCode: string,
-    postalCode: string,){
+    city: string,
+    state: string, 
+    zipcode: string,
+    countryCode: string
+    ){
       this.ID = ID
       this.streetNo = streetNo
       this.streetName1 = streetName1
       this.streetName2 = streetName2
-      this.region = region
+      this.city = city
+      this.state = state
       this.countryCode = countryCode
-      this.postalCode  = postalCode 
+      this.zipcode  = zipcode 
   }
 }
