@@ -13,6 +13,7 @@ import { JsonObjectExpression } from 'typescript';
 export class UserService {
   users: User[] = [];
   userUrl: string;
+  hosturl: string = 'http://eb2-env.eba-khxuypq3.us-east-1.elasticbeanstalk.com'
 
   constructor(private http: HttpClient) {
     this.userUrl = "";
@@ -21,18 +22,19 @@ export class UserService {
   getUserServiceUrl(id: string): string {
     const theUrl = window.location.href;
     let result: string;
-
+    result = this.hosturl+'/users/'+id;
+    /*
     if ((theUrl.includes('127.0.0.1')) || (theUrl.includes('localhost')))
     {
       result = 'http://127.0.0.1:5000/users/'+id;
     } else {
-      result = 'http://eb2-env.eba-khxuypq3.us-east-1.elasticbeanstalk.com/users/'+id;
+      
     }
     if (id!=''){
       result = 'http://127.0.0.1:5000/users/'+id;
     }else{
       result = 'http://127.0.0.1:5000/users';
-    }
+    }*/
     return result;
   }
   
@@ -54,7 +56,7 @@ export class UserService {
   getUsers() : Observable<any> {
     let theUrl: string;
 
-    theUrl = 'http://127.0.0.1:5000/users'; //this.getUserServiceUrl('');
+    theUrl = this.hosturl+'/users'; //this.getUserServiceUrl('');
     return this.http.get<any>(theUrl);
   }
 }
