@@ -1,0 +1,107 @@
+<div class="container-fluid my-5 d-flex justify-content-center">
+    <div class="card card-1">
+        <div class="card-header bg-white">
+            <div class="media flex-sm-row flex-column-reverse justify-content-between ">
+                <div class="col my-auto">
+                    <h2 class="mb-0">Thanks for your Order, <span class="change-color">{{this.currOrder.nameFirst}}</span>!</h2>
+                </div>
+                <div class="col-auto text-center my-auto pl-0 pt-sm-4"> <img class="img-fluid my-auto align-items-center mb-0 pt-3" src="https://www.online-tech-tips.com/wp-content/uploads/2019/12/electronic-gadgets.jpeg" width="115" height="115">
+                    <p class="mb-4 pt-0 Glasses"><b>Nimbus Electronics</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row justify-content-between mb-3">
+                <div class="col-auto">
+                    <h6 class="color-1 mb-0 change-color">Receipt</h6>
+                </div>
+                <div class="col-auto "> <small>Order # : {{this.orderID}}</small> </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card card-2">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="sq align-self-center "> <img class="img-fluid my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="https://www.electronicsforu.com/wp-contents/uploads/2014/02/electronics-projects.jpg" width="135" height="135" /> </div>
+                                <div class="media-body my-auto text-right">
+                                    <div class="row my-auto flex-column flex-md-row">
+                                        <div class="col my-auto">
+                                            <h3 class="mb-0"> {{this.currOrder.pname}}</h3>
+                                        </div>
+                                        <div class="col my-auto"> <h4>Qty : {{this.currOrder.quantity}}</h4></div>
+                                        <div class="col my-auto">
+                                            <h3 class="mb-0"><b>{{this.currOrder.price}}</b></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    <div class="row justify-content-between">
+                        <div class="col-auto">
+                            <p class="mb-1 text-dark"><b>Order Details</b></p>
+                        </div>
+                        <div class="flex-sm-col text-right col">
+                            <p class="mb-1"><b>Subotal</b></p>
+                        </div>
+                        <div class="flex-sm-col col-auto">
+                            <p class="mb-1"><b>{{this.currOrder.price}}</b></p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="flex-sm-col text-right col">
+                            <p class="mb-1"> <b>Discount</b></p>
+                        </div>
+                        <div class="flex-sm-col col-auto">
+                            <p class="mb-1">0 %</p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="flex-sm-col text-right col">
+                            <p class="mb-1"><b>Tax</b></p>
+                        </div>
+                        <div class="flex-sm-col col-auto">
+                            <p class="mb-1">0.00</p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="flex-sm-col text-right col">
+                            <p class="mb-1"><b>Delivery Charges</b></p>
+                        </div>
+                        <div class="flex-sm-col col-auto">
+                            <p class="mb-1">Free</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row invoice ">
+                <div class="col">
+                    <p class="mb-1"> Shipper: FedEx</p>
+                    <p class="mb-1">Tracking Number: 55623216</p>
+                    <p class="mb-1">Invoice Date: {{this.currOrder.orderDateTime}}</p>
+                    <p class="mb-1">Credit Card: 1234567891011213</p>
+                    <p class="mb-1">Address: {{this.currOrder.streetNo}} {{this.currOrder.streetName1}}, {{this.currOrder.city}}, {{this.currOrder.state}} {{this.currOrder.zipcode}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="jumbotron-fluid">
+                <div class="row justify-content-between ">
+                    <div class="col-sm-auto col-auto my-auto"><img class="img-fluid my-auto align-self-center " src="https://www.online-tech-tips.com/wp-content/uploads/2019/12/electronic-gadgets.jpeg" width="115" height="115"></div>
+                    <div class="col-auto my-auto ">
+                        <h2 class="mb-0 font-weight-bold">TOTAL PAID</h2>
+                    </div>
+                    <div class="col-auto my-auto ml-auto">
+                        <h1 class="display-3 ">{{this.currOrder.price}}</h1>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

@@ -21,7 +21,10 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.productService.getProducts()
-    .subscribe( data => this.allProducts = {...data})
+    .subscribe( data => {
+      console.log(data)
+      this.allProducts = data
+    })
   }
 
   onSomethingInput(e: Event) : void {

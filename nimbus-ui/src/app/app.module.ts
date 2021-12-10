@@ -17,6 +17,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { UserComponent } from './components/user/user.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsersComponent } from './components/users/users.component';
+import { OrderComponent } from './components/order/order.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { UsersComponent } from './components/users/users.component';
     ProductComponent,
     SearchBarComponent,
     UserComponent,
-    UsersComponent
+    UsersComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
@@ -44,3 +46,4 @@ import { UsersComponent } from './components/users/users.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+ 
