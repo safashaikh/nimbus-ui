@@ -13,7 +13,7 @@ export class OrderService {
   constructor(private http: HttpClient) { }
 
   getOrder(orderID: string): Observable<Order> {
-    let theUrl = this.hosturl+'/orderDetails/'+orderID;
+    let theUrl = this.hosturl+'/orderDetailsAsync/'+orderID;
     return this.http.get<Order>(theUrl);
   }
 
