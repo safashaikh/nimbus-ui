@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class ProductsService {
   theProduct: Product;
   allProducts: Product[] = new Array(3);
-  hosturl: string = 'http://ec2-3-81-181-29.compute-1.amazonaws.com:5000';
+  hosturl: string = 'https://lmptddyukl.execute-api.us-east-1.amazonaws.com/Beta';
 
   constructor(private http: HttpClient) { 
     this.theProduct = new Product("1", "Cazcase Deer Pattern Smart Case Cover Flip Stand Cover for Apple iPad pro 10.5 inch (A1701 / A1709) / ipad Air 3 10.5 inch 2019 (Brown)", "CAZCASE");

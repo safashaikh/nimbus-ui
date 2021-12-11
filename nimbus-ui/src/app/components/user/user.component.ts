@@ -44,8 +44,6 @@ export class UserComponent implements OnInit {
       this.userAddr = new Address(addr.ID, addr.streetNo, addr.streetName1, addr.streetName2, addr.city, addr.state, addr.zipcode, addr.countryCode);
     })
 
-    this.orderService.getCustomerOrders(this.userID)
-    .subscribe( data => this.cOrders = data)
   }
 
   // Include for all users page

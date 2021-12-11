@@ -19,6 +19,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsersComponent } from './components/users/users.component';
 import { OrderComponent } from './components/order/order.component';
 import { ReviewComponent } from './components/review/review.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { ReviewComponent } from './components/review/review.component';
     UserComponent,
     UsersComponent,
     OrderComponent,
-    ReviewComponent
+    ReviewComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

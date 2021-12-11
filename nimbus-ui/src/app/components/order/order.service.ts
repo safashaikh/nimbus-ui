@@ -7,13 +7,14 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class OrderService {
-  hosturl: string = 'http://localhost:5003';
+  hosturl: string = 'http://ec2-3-81-181-29.compute-1.amazonaws.com:5001';
   ORDERS: Order[] = [];
+  oids: string[] = [];
 
   constructor(private http: HttpClient) { }
 
   getOrder(orderID: string): Observable<Order> {
-    let theUrl = this.hosturl+'/orderDetailsAsync/'+orderID;
+    let theUrl = this.hosturl+'/orderDetails/'+orderID;
     return this.http.get<Order>(theUrl);
   }
 
@@ -23,27 +24,38 @@ export class OrderService {
   }
 
   getCustomerOrders(cid: string) : Observable<Order[]> {
-    
-    let oids: string[] = [];
+    this.ORDERS = [];
+    this.oids = [];
     this._getCustomerOrders(cid)
     .subscribe( data => {
       let orders = data['data'];
       for (var order of orders){
-        oids.push(order.orderID);
+        this.oids.push(order.orderID);
       }
+      console.log(this.oids)
+
+      for (var oid of this.oids){
+        let order_i: Order;
+        this.getOrder(oid)
+        .subscribe( data =>{
+          let t_order: Order = data;
+          console.log(t_order);
+          t_order.oid = oid;
+          this.ORDERS.push(t_order)
+        }
+          )
+  
+      }
+
     }
 
     )
 
-    for (var oid of oids){
-      let order_i: Order;
-      this.getOrder(oid)
-      .subscribe( data =>{
-        this.ORDERS.push(data)
-      }
-        )
+    
 
-    }
+    
+
+    
     
     
     return of(this.ORDERS);

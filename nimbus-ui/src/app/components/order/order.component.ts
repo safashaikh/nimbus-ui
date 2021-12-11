@@ -23,7 +23,9 @@ export class OrderComponent implements OnInit {
     this.orderService.getOrder(this.orderID)
     .subscribe( data => {
       console.log(data);
-      this.currOrder = data
+      this.currOrder = data;
+      this.currOrder.oid = this.orderID;
+      console.log(this.currOrder);
     } );
     
   }

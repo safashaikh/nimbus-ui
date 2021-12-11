@@ -14,6 +14,7 @@ export class Order {
     city: string;
     state: string;
     zipcode: number;
+    oid: string = '0';
   
     constructor(pname: string, 
         manufacturer: string, 
