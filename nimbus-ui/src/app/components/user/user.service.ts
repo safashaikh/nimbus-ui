@@ -54,10 +54,10 @@ export class UserService {
     return this.http.get<any>(theUrl);
   }
 
-  getUsers() : Observable<any> {
+  getUsers(num: number, offset: number) : Observable<any> {
     let theUrl: string;
 
-    theUrl = this.hosturl+'/users'; //this.getUserServiceUrl('');
+    theUrl = this.hosturl+'/users?&limit='+num+ '&offset='+offset; //this.getUserServiceUrl('');
     return this.http.get<any>(theUrl);
   }
 }

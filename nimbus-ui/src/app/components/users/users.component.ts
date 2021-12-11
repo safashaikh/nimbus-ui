@@ -14,6 +14,8 @@ export class UsersComponent implements OnInit {
   usersInfo: User[] = [];
   teststr: any;
   userService: UserService;
+  num: number = 10;
+  offset: number = 0;
   constructor(userService: UserService) {
     this.userService = userService;
     this.teststr = '';
@@ -21,7 +23,7 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('Initialized');
-    this.userService.getUsers()
+    this.userService.getUsers(this.num, this.offset)
     .subscribe( data => {
       let users = data['data'];
       for (var user of users){
@@ -29,6 +31,46 @@ export class UsersComponent implements OnInit {
         this.usersInfo.push(newuser);
       }
     })
+  }
+
+  onNumChange(event: any) : void {
+    this.num = event.target.value;
+    this.usersInfo = [];
+    this.userService.getUsers(this.num, this.offset)
+      .subscribe( data => {
+        let users = data['data'];
+        for (var user of users){
+          var newuser = new User(user.ID, user.nameLast, user.nameFirst, user.username, user.email, user.addressID);
+          this.usersInfo.push(newuser);
+        }
+      })
+    
+  }
+
+  onNext(event: any) : void {
+    this.offset = +this.offset + this.num;
+    this.usersInfo = [];
+    this.userService.getUsers(this.num, this.offset)
+      .subscribe( data => {
+        let users = data['data'];
+        for (var user of users){
+          var newuser = new User(user.ID, user.nameLast, user.nameFirst, user.username, user.email, user.addressID);
+          this.usersInfo.push(newuser);
+        }
+      })
+  }
+
+  onPrev(event: any) : void {
+    this.offset = +this.offset - this.num;
+    this.usersInfo = [];
+    this.userService.getUsers(this.num, this.offset)
+      .subscribe( data => {
+        let users = data['data'];
+        for (var user of users){
+          var newuser = new User(user.ID, user.nameLast, user.nameFirst, user.username, user.email, user.addressID);
+          this.usersInfo.push(newuser);
+        }
+      })
   }
 
 
