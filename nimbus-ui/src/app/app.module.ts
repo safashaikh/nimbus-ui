@@ -20,6 +20,7 @@ import { UsersComponent } from './components/users/users.component';
 import { OrderComponent } from './components/order/order.component';
 import { ReviewComponent } from './components/review/review.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { ReviewsComponent } from './components/reviews/reviews.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { OrdersComponent } from './components/orders/orders.component';
     UsersComponent,
     OrderComponent,
     ReviewComponent,
-    OrdersComponent
+    OrdersComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,

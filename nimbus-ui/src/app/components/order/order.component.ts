@@ -12,10 +12,12 @@ export class OrderComponent implements OnInit {
   currOrder: Order;
   orderID: string;
   orderService: OrderService;
+  total: Number;
   constructor(orderService: OrderService, private route: ActivatedRoute) {
     this.orderService = orderService;
     this.currOrder = new Order('','','',0,0,'','','','',0,'','','','',0);
     this.orderID = '0';
+    this.total = 0;
    }
 
   ngOnInit(): void {
@@ -25,6 +27,10 @@ export class OrderComponent implements OnInit {
       console.log(data);
       this.currOrder = data;
       this.currOrder.oid = this.orderID;
+      var x = +this.currOrder.price
+      var y = +this.currOrder.quantity
+      this.total = x*y;
+      //this.total = Math.round(this.total * 100)/100;
       console.log(this.currOrder);
     } );
     

@@ -7,19 +7,19 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class OrderService {
-  hosturl: string = 'http://ec2-3-81-181-29.compute-1.amazonaws.com:5001';
+  hosturl: string = 'https://lmptddyukl.execute-api.us-east-1.amazonaws.com/Beta';
   ORDERS: Order[] = [];
   oids: string[] = [];
 
   constructor(private http: HttpClient) { }
 
   getOrder(orderID: string): Observable<Order> {
-    let theUrl = this.hosturl+'/orderDetails/'+orderID;
+    let theUrl = this.hosturl+'/orderdetails/'+orderID;
     return this.http.get<Order>(theUrl);
   }
 
   _getCustomerOrders(cid:string): Observable<any> {
-    let ordersUrl = 'http://44.197.87.209:5000/orders?customer='+cid
+    let ordersUrl = 'https://lmptddyukl.execute-api.us-east-1.amazonaws.com/Beta/orders?customer='+cid
     return this.http.get<any>(ordersUrl);
   }
 

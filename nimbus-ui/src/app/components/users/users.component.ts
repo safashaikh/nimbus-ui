@@ -26,6 +26,7 @@ export class UsersComponent implements OnInit {
     this.userService.getUsers(this.num, this.offset)
     .subscribe( data => {
       let users = data['data'];
+      console.log(data)
       for (var user of users){
         var newuser = new User(user.ID, user.nameLast, user.nameFirst, user.username, user.email, user.addressID);
         this.usersInfo.push(newuser);

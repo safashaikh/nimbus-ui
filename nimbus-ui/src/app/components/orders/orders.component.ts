@@ -30,7 +30,9 @@ export class OrdersComponent implements OnInit {
       this.userID = this.route.snapshot.params['userID']
       this.orderService.getCustomerOrders(this.userID)
       .subscribe( data => {
-        this.orders = data})
+        console.log(data)
+        this.orders = data
+      })
     }
     
   }

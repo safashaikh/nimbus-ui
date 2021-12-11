@@ -13,7 +13,7 @@ import { JsonObjectExpression } from 'typescript';
 export class UserService {
   users: User[] = [];
   userUrl: string;
-  hosturl: string = 'http://eb2-env.eba-khxuypq3.us-east-1.elasticbeanstalk.com'
+  hosturl: string = 'https://lmptddyukl.execute-api.us-east-1.amazonaws.com/Beta'
 
   constructor(private http: HttpClient) {
     this.userUrl = "";
